@@ -1,0 +1,98 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Boarding & Cozy Shelter",
+    "providerName": "WarmPaws Lodge",
+    "providerEmail": "contact@warmpaws.com",
+    "price": 45,
+    "rating": 4.8,
+    "slotsAvailable": 5,
+    "description": "Our heated indoor kennels offer a warm and comfortable place for your pets during chilly winter days. Each space includes soft bedding, blankets, and constant supervision to ensure safety and peace of mind.",
+    "image": "https://d2zp5xs5cp8zlg.cloudfront.net/image-93785-800.jpg",
+    "category": "Boarding"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Cat Sitting & Winter Comfort Visits",
+    "providerName": "CozyCat Care",
+    "providerEmail": "support@cozycatcare.com",
+    "price": 30,
+    "rating": 4.9,
+    "slotsAvailable": 6,
+    "description": "Keep your cat cozy this winter with personalized at-home visits. Our sitters provide warmth, companionship, fresh food, and gentle cuddles, ensuring your feline stays stress-free and loved during cold weather.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0HKKs3_pJL98A1saxDLEH0CgAbh7Ul4onWw&s",
+    "category": "Cat Sitting"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Winter Walks with Paw Protection",
+    "providerName": "PawStride",
+    "providerEmail": "hello@pawstride.com",
+    "price": 20,
+    "rating": 4.7,
+    "slotsAvailable": 8,
+    "description": "Even in the frostiest months, our trained dog walkers ensure safe strolls using protective booties and reflective winter gear. We keep your dog active, comfortable, and happy no matter how cold it gets.",
+    "image": "https://www.helpguide.org/wp-content/uploads/2023/02/Health-Benefits-of-Walks-with-Your-Dog.jpeg",
+    "category": "Dog Walking"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Winter Grooming & Moisture Treatment",
+    "providerName": "SnowPup Groomers",
+    "providerEmail": "groom@snopup.com",
+    "price": 40,
+    "rating": 4.9,
+    "slotsAvailable": 3,
+    "description": "Cold weather can dry out your pet's skin. Our grooming experts provide hydration treatments, coat trimming, and gentle warm baths that protect the skin barrier and keep your pet's coat shiny and soft all winter long.",
+    "image": "https://www.petbusinessinsurance.co.uk/img/0-featured-man-giving-golden-labrador-he-is-pet-sitting-a-high-five.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Heated Kennel Boarding & Overnight Stay",
+    "providerName": "SuperScoopers Pet Inn",
+    "providerEmail": "stay@superscoopers.com",
+    "price": 55,
+    "rating": 4.8,
+    "slotsAvailable": 4,
+    "description": "Our climate-controlled kennels offer full warmth, safety, and affection through the cold months. With constant care, nutritious meals, and cozy bedding, your pets will feel at home while you're away.",
+    "image": "https://www.superscoopers.com/wp-content/uploads/2020/11/kennels-for-pets-3821849_1920.jpg",
+    "category": "Boarding"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Winter House Sitting & Pet Care",
+    "providerName": "TrustMyPet Sitters",
+    "providerEmail": "care@trustmypetsitter.com",
+    "price": 60,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Going on a winter vacation? Our professional sitters care for both your home and pets. We maintain warmth, feed your pets on time, and ensure security and love while you enjoy a worry-free trip.",
+    "image": "https://trustmypetsitter.com/wp-content/uploads/2024/05/Getting-paid-for-House-Sitting-Jobs-%E2%80%93-How-to-start-today-1.png",
+    "category": "House Sitting"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Emergency Pet Helpline & Winter Support",
+    "providerName": "PetsBest Helpline",
+    "providerEmail": "help@petsbest.com",
+    "price": 0,
+    "rating": 5.0,
+    "slotsAvailable": 24,
+    "description": "We're available 24/7 during the winter season to guide pet owners through emergencies like frostbite, hypothermia, or lost pets. Call or chat for instant professional advice and compassionate support.",
+    "image": "https://imageserver.petsbest.com/website/content/pet-helpline.jpg",
+    "category": "Emergency"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Winter Fitness & Play Sessions",
+    "providerName": "PawsNRec",
+    "providerEmail": "info@pawsnrec.com",
+    "price": 35,
+    "rating": 4.8,
+    "slotsAvailable": 5,
+    "description": "Indoor playtime meets physical wellness in our heated recreation center. Your pets enjoy socializing, agility exercises, and mental stimulation to stay active and happy even on snowy days.",
+    "image": "https://www.pawsnrec.com/wp-content/uploads/2023/09/370509329_310779658114226_7935278835350462179_n.jpg",
+    "category": "Recreation"
+  }
+]
