@@ -6,6 +6,7 @@ import Root from "../root/Root"
 import Blogs from "../pages/Blogs"
 import Home from "../pages/Home"
 import Service from "../pages/Service"
+import ServiceDetails from "../pages/ServiceDetails"
 
 
 
@@ -24,6 +25,11 @@ const router = createBrowserRouter(
         {
             path:"/service",
             element: <Service></Service>,
+            loader: () => fetch('/public/winterPetServices.json')
+        },
+        {
+            path:"/service/:serviceId",
+            element: <ServiceDetails></ServiceDetails>,
             loader: () => fetch('/public/winterPetServices.json')
         },
         {
