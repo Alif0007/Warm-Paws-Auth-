@@ -7,6 +7,7 @@ import Blogs from "../pages/Blogs"
 import Home from "../pages/Home"
 import Service from "../pages/Service"
 import ServiceDetails from "../pages/ServiceDetails"
+import ErrorPage from "../pages/error404"
 
 
 
@@ -53,6 +54,10 @@ const router = createBrowserRouter(
 
                 }
             ]
+        },
+        {
+            path:"/*",
+            element: <ErrorPage></ErrorPage>
         }
             ]
         }
