@@ -1,11 +1,19 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 const LoginPage = () => {
 
     const {signInUser,googleSignIn} = use(AuthContext)
+     const [showPass,setShowPass] = useState(false)
+    
+        const handleToggle =(e) =>{
+        e.preventDefault()
+        setShowPass(!showPass)
+    
+        }
 
     const handleLogin = (e)=>{
         e.preventDefault()
@@ -50,7 +58,15 @@ const LoginPage = () => {
           <label className="label ">Email</label>
           <input required name="email"  type="email" className="input w-full" placeholder="Email" />
           <label className="label">Password</label>
-          <input required name="password"  type="password" className="input w-full" placeholder="Password" />
+          <div className='relative'>
+            <input required name="password"  
+            type={showPass ? "text" : "password" }
+            className="input w-full" 
+            placeholder="Password" />
+            <button onClick={handleToggle} className='absolute right-5 top-3.5 cursor-pointer'>
+               {showPass ? <FaEyeSlash/> : <FaEye />}
+            </button>
+          </div>
           <div><a className="link link-hover">Forgot password?</a></div>
           <button type='submit' className="btn btn-neutral mt-4">Login</button>
         </fieldset>

@@ -1,11 +1,22 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import  { AuthContext } from '../provider/AuthProvider';
 import { NavLink } from 'react-router';
+import toast, { Toaster } from 'react-hot-toast';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 const RegisterPage = () => {
 
-    const {createUser} = use(AuthContext)
+    const {createUser,setUser} = use(AuthContext)
+    const [error,setError] = useState("")
+    const [showPass,setShowPass] = useState(false)
+
+    const handleToggle =(e) =>{
+    e.preventDefault()
+    setShowPass(!showPass)
+
+    }
+    
 
     const handleRegister =(e)=>{
         e.preventDefault()
@@ -14,17 +25,28 @@ const RegisterPage = () => {
         const password = form.password.value
         const name = form.name.value
         const photoUrl = form.url.value
-        console.log(email,password,name,photoUrl)
+      
+        setError("")
+        
+        const passValidation = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/
+        if(!passValidation.test(password)){
+          setError("Password must contain an Uppercase letter, Lowercase letter, at least 6 character")
+          return
+        }
 
+        
         createUser(email,password)
         .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
     console.log(user)
+    setUser(user)    
+    toast.success('Registration Successful')
     // ...
   })
   .catch((error) => {
-    console.log(error)
+    setError(error.message)
+    console.log(error.message)
   });
     }
 
@@ -52,16 +74,29 @@ const RegisterPage = () => {
           <input required name="url"  type="url" className="input w-full" placeholder="Photo URL" />
 
           <label className="label">Password</label>
-          <input required name="password"  type="password" className="input w-full" placeholder="Password" />
+          <div className='relative'>
+            <input required name="password"  
+            type={showPass ? "text" : "password" }
+            className="input w-full" 
+            placeholder="Password" />
+            <button onClick={handleToggle} className='absolute right-5 top-3.5 cursor-pointer'>
+               {showPass ? <FaEyeSlash/> : <FaEye />}
+            </button>
+          </div>
 
           <div><a className="link link-hover">Forgot password?</a></div>
 
           <button type='submit' className="btn btn-neutral mt-4">Register</button>
         </fieldset>
+        <div className='text-red-600'>
+          {error && error}
+        </div>
+       
       </form>
       <p className='text-center pb-5'>Already have an account, <NavLink to="/auth/login"><span className='font-bold text-blue-700'>Login</span> </NavLink> Here</p>
     </div>
   </div>
+  <Toaster></Toaster>
 </div>
         </div>
         </div>

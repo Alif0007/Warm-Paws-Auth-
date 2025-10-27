@@ -21,17 +21,17 @@ const router = createBrowserRouter(
                 {
             path:"/",
             element: <Home></Home>,
-            loader: () => fetch('/public/winterPetServices.json')
+            loader: () => fetch('/winterPetServices.json')
         },
         {
             path:"/service",
             element: <Service></Service>,
-            loader: () => fetch('/public/winterPetServices.json')
+            loader: () => fetch('/winterPetServices.json')
         },
         {
             path:"/service/:serviceId",
             element: <ServiceDetails></ServiceDetails>,
-            loader: () => fetch('/public/winterPetServices.json')
+            loader: () => fetch('/winterPetServices.json')
         },
         {
             path:"/myprofile",
