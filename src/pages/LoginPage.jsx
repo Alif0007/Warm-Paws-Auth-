@@ -1,13 +1,17 @@
 import React, { use, useState } from 'react';
-import { NavLink } from 'react-router';
+import { NavLink, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const LoginPage = () => {
 
-    const {signInUser,googleSignIn} = use(AuthContext)
+    const {signInUser,googleSignIn,setUser} = use(AuthContext)
      const [showPass,setShowPass] = useState(false)
+     const location = useLocation()
+     const navigate =useNavigate()
+     console.log(location)
     
         const handleToggle =(e) =>{
         e.preventDefault()
@@ -27,22 +31,29 @@ const LoginPage = () => {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
-          console.log(user)
+          setUser(user)
+          
+          navigate(location.state || '/')
+          toast.success('Logged in Successfully')
           // ...
         })
         .catch((error) => {
-          console.log(error)
+          console.log(error.message)
+          toast.error('Incorrect Email/Password')
         });
     }
 
     const signInGoogle =(e)=>{
       e.preventDefault()
       googleSignIn()
-      .then((result) => {
-    console.log(result.user)
-  }).catch((error) => {
-    console.log(error)
-  });
+            .then((result) => {
+          console.log(result.user)
+          setUser(result.user)
+          toast.success('Logged in Successfully')
+          navigate(location.state || '/')
+        }).catch((error) => {
+          console.log(error)
+        });
     } 
 
 
@@ -77,10 +88,14 @@ const LoginPage = () => {
     </button>
       </div>
       
-      <p className='text-center pb-5'>Don't have an account, <NavLink to="/auth/register"><span className='font-bold text-blue-700'>Register</span> </NavLink> Here</p>
+      <p className='text-center pb-5'>Don't have an account, 
+        <NavLink to="/auth/register"><span  className='font-bold text-blue-700'>Register</span> </NavLink>
+        
+         Here</p>
     </form>
   </div>
 </div>
+        <Toaster/>
         </div>
     );
 };

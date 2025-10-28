@@ -1,8 +1,9 @@
 import React, { use, useState } from 'react';
 import  { AuthContext } from '../provider/AuthProvider';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import toast, { Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { updateProfile } from 'firebase/auth';
 
 
 const RegisterPage = () => {
@@ -10,6 +11,9 @@ const RegisterPage = () => {
     const {createUser,setUser} = use(AuthContext)
     const [error,setError] = useState("")
     const [showPass,setShowPass] = useState(false)
+    
+     const navigate =useNavigate()
+     
 
     const handleToggle =(e) =>{
     e.preventDefault()
@@ -37,17 +41,34 @@ const RegisterPage = () => {
         
         createUser(email,password)
         .then((userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-    console.log(user)
-    setUser(user)    
-    toast.success('Registration Successful')
-    // ...
-  })
-  .catch((error) => {
-    setError(error.message)
-    console.log(error.message)
-  });
+          // Signed up 
+          const user = userCredential.user;
+          console.log(user)
+          setUser(user)    
+          toast.success('Registration Successful')
+          navigate('/')
+
+          // Update Profile
+          const profile = {
+            displayName : name,
+            photoURL : photoUrl
+          }
+
+          updateProfile(user,profile).then(() => {
+            // Profile updated!
+            // ...
+            console.log("done")
+          }).catch((error) => {
+            console.log(error)
+          
+          });
+
+          // ...
+        })
+        .catch((error) => {
+          setError(error.message)
+          console.log(error.message)
+        });
     }
 
 
@@ -70,7 +91,7 @@ const RegisterPage = () => {
            <label className="label ">Email</label>
           <input required name="email"  type="email" className="input w-full" placeholder="Email" />
 
-          <label className="label ">Email</label>
+          <label className="label ">Photo URL</label>
           <input required name="url"  type="url" className="input w-full" placeholder="Photo URL" />
 
           <label className="label">Password</label>
@@ -91,6 +112,8 @@ const RegisterPage = () => {
         <div className='text-red-600'>
           {error && error}
         </div>
+
+        
        
       </form>
       <p className='text-center pb-5'>Already have an account, <NavLink to="/auth/login"><span className='font-bold text-blue-700'>Login</span> </NavLink> Here</p>

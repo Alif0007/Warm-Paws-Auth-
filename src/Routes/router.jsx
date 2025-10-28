@@ -8,6 +8,7 @@ import Home from "../pages/Home"
 import Service from "../pages/Service"
 import ServiceDetails from "../pages/ServiceDetails"
 import ErrorPage from "../pages/error404"
+import PrivateRoute from "./privateRoute"
 
 
 
@@ -35,11 +36,11 @@ const router = createBrowserRouter(
         },
         {
             path:"/myprofile",
-            element: <MyProfile></MyProfile> 
+            element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute> 
         },
         {
             path:"/blogs",
-            element: <Blogs></Blogs>
+            element: <PrivateRoute><Blogs></Blogs></PrivateRoute>
         },
         {
             path:"/auth",

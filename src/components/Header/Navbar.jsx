@@ -2,6 +2,8 @@ import React, { use } from 'react';
 import logo from '../../assets/logo.png'
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const Navbar = () => {
     const links = <>
@@ -11,7 +13,20 @@ const Navbar = () => {
         <NavLink to="/blogs"><li className='mx-2 text-lg'>Blogs</li></NavLink>
 
     </>
-    const {user} = use(AuthContext)
+    const {user,signOutUser,setUser} = use(AuthContext)
+    
+
+    
+    const handleSignOut = ()=>{
+       signOutUser()
+            .then(() => {
+            
+            toast.success('Logged Out Succesfully')
+            setUser(null)
+            }).catch((error) => {
+            console.log(error)
+            }); 
+    }
 
     return (
         <div>
@@ -37,11 +52,22 @@ const Navbar = () => {
         <div className="navbar-end">
             
             {
-                user ? <Link to="/auth/login"><div className="btn bg-red-600 text-white">Log Out</div> </Link>:
+                user ? <div className='flex items-center gap-4'>
+              <div className='flex flex-col items-center'>
+                  <img
+                    src={user.photoURL ? user.photoURL : "https://sbcf.fr/wp-content/uploads/2018/03/sbcf-default-avatar.png"}
+                    alt="Profile"
+                    className="w-10 h-10 rounded-full  border border-orange-300 shadow-md "
+                    />
+                    <p>{user.displayName}</p>
+              </div>
+                <Link to="/auth/login"><div onClick={handleSignOut} className="btn bg-red-600 text-white">Log Out</div> </Link>
+                </div> :
                 <Link to="/auth/login"><div className="btn bg-blue-600 text-white">Login</div> </Link>
             }
         </div>
         </div>
+        <Toaster />
         </div>
     );
 };
