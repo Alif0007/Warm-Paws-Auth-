@@ -3,7 +3,7 @@ import logo from '../../assets/logo.png'
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
-
+import '../../index.css';
 
 const Navbar = () => {
     const links = <>
@@ -42,7 +42,7 @@ const Navbar = () => {
                 {links}
             </ul>
             </div>
-            <img className='h-12' src={logo} alt="" />
+            <Link to="/"><img className='h-12' src={logo} alt="" /></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">

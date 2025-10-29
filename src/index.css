@@ -1,2 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.active{
+    color: red;
+    
+    scale: 1.1;
+}

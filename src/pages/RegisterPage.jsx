@@ -105,7 +105,7 @@ const RegisterPage = () => {
             </button>
           </div>
 
-          <div><a className="link link-hover">Forgot password?</a></div>
+          
 
           <button type='submit' className="btn btn-neutral mt-4">Register</button>
         </fieldset>
@@ -116,10 +116,10 @@ const RegisterPage = () => {
         
        
       </form>
-      <p className='text-center pb-5'>Already have an account, <NavLink to="/auth/login"><span className='font-bold text-blue-700'>Login</span> </NavLink> Here</p>
+      <p className='text-center pb-5'>Already have an account, <NavLink to="/auth/login"><span className='font-bold text-blue-700'>Login </span> </NavLink> Here</p>
+      
     </div>
   </div>
-  <Toaster></Toaster>
 </div>
         </div>
         </div>
