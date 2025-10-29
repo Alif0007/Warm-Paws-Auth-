@@ -3,12 +3,12 @@ import  { AuthContext } from '../provider/AuthProvider';
 import { NavLink, useNavigate } from 'react-router';
 import toast, { Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { updateProfile } from 'firebase/auth';
+
 
 
 const RegisterPage = () => {
 
-    const {createUser,setUser} = use(AuthContext)
+    const {createUser,setUser,updateProfileUser} = use(AuthContext)
     const [error,setError] = useState("")
     const [showPass,setShowPass] = useState(false)
     
@@ -54,7 +54,7 @@ const RegisterPage = () => {
             photoURL : photoUrl
           }
 
-          updateProfile(user,profile).then(() => {
+          updateProfileUser(user,profile).then(() => {
             // Profile updated!
             // ...
             console.log("done")

@@ -4,7 +4,7 @@ import { updateProfile } from "firebase/auth";
 updateProfile
 
 const MyProfile = () => {
-    const{user} = use(AuthContext)
+    const{user,updateProfileUser} = use(AuthContext)
     const [updating,setUpdating] = useState(false)
 
   
@@ -16,7 +16,7 @@ const MyProfile = () => {
 
   
   const updateProfileForm =(e) =>{
-    e.preventDefault()
+    
     const name = e.target.name.value
     const photoUrl = e.target.url.value
     const profile = {
@@ -25,7 +25,7 @@ const MyProfile = () => {
   }
   console.log (user)
 
-    updateProfile(user,profile).then(() => {
+    updateProfileUser(user,profile).then(() => {
                 // Profile updated!
                 // ...
                 setUpdating(false)
