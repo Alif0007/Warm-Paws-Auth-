@@ -1,4 +1,7 @@
                                             Warm Paws
+
+
+
 ## Project Overview
 
 Warm Paws is a responsive, modern pet care web application designed to provide a seamless winter care experience for pets. Built with React, Firebase, and Tailwind CSS, it allows users to browse, book, and manage pet care services with ease.
@@ -40,12 +43,6 @@ animate.css
 firebase
 react-router-dom
 daisyui
-
-
-
-
-
-
 
 
 ## Design & Responsiveness
